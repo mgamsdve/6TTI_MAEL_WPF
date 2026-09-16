@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDefaultItems>true</EnableDefaultItems>
+    <DefineSilverlight>true</DefineSilverlight>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenSilver" Version="3.4.0-preview-2026-09-15-220208-219d786d" />
+    <PackageReference Include="OpenSilver.Themes.Modern" Version="3.4.0-preview-2026-07-20-092918-c8997484" />
+    <PackageReference Include="OpenSilver.WpfCompat" Version="3.4.0-preview-2026-09-15-131708-43b0c25" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="**/*.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>
