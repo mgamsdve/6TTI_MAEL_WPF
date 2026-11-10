@@ -1,0 +1,10 @@
+<Window x:Class="Calculatrice.Wpf.PageResultat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Résultat" Height="220" Width="380" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="24" VerticalAlignment="Center">
+        <TextBlock x:Name="LblResultat" FontSize="22" TextWrapping="Wrap" TextAlignment="Center" />
+        <Button Content="Retour" Width="100" Height="36" Margin="0,24,0,0"
+                HorizontalAlignment="Center" Click="Retour_Click" />
+    </StackPanel>
+</Window>

@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Calculatrice.Mac.MainWindow"
+        Title="Calculatrice" Width="320" Height="420" MinWidth="280" MinHeight="380">
+  <Grid RowDefinitions="Auto,*,*,*,*" ColumnDefinitions="*,*,*,*" Margin="12" RowSpacing="8" ColumnSpacing="8">
+    <TextBox x:Name="Display" Grid.ColumnSpan="3" Text="0" FontSize="28" IsReadOnly="True" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+    <Button Grid.Column="3" Content="C" Click="OnClear" HorizontalContentAlignment="Center" />
+    <Button Grid.Row="1" Grid.Column="0" Content="1" Click="OnDigit" />
+    <Button Grid.Row="1" Grid.Column="1" Content="2" Click="OnDigit" />
+    <Button Grid.Row="1" Grid.Column="2" Content="3" Click="OnDigit" />
+    <Button Grid.Row="1" Grid.Column="3" Content="+" Click="OnOperator" />
+    <Button Grid.Row="2" Grid.Column="0" Content="4" Click="OnDigit" />
+    <Button Grid.Row="2" Grid.Column="1" Content="5" Click="OnDigit" />
+    <Button Grid.Row="2" Grid.Column="2" Content="6" Click="OnDigit" />
+    <Button Grid.Row="2" Grid.Column="3" Content="-" Click="OnOperator" />
+    <Button Grid.Row="3" Grid.Column="0" Content="7" Click="OnDigit" />
+    <Button Grid.Row="3" Grid.Column="1" Content="8" Click="OnDigit" />
+    <Button Grid.Row="3" Grid.Column="2" Content="9" Click="OnDigit" />
+    <Button Grid.Row="3" Grid.Column="3" Content="/" Click="OnOperator" />
+    <Button Grid.Row="4" Grid.Column="0" Content="," Click="OnDecimal" />
+    <Button Grid.Row="4" Grid.Column="1" Content="0" Click="OnDigit" />
+    <Button Grid.Row="4" Grid.Column="2" Content="*" Click="OnOperator" />
+    <Button Grid.Row="4" Grid.Column="3" Content="=" Click="OnEquals" />
+  </Grid>
+</Window>

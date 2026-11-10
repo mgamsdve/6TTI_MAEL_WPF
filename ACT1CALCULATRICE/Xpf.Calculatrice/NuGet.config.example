@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copier ce fichier en NuGet.config et renseigner les identifiants du dépôt XPF. -->
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+    <add key="xpf" value="https://xpf-nuget-feed.avaloniaui.net/v3/index.json" />
+  </packageSources>
+  <packageSourceCredentials>
+    <xpf>
+      <add key="Username" value="VOTRE_IDENTIFIANT" />
+      <add key="ClearTextPassword" value="VOTRE_CLE" />
+    </xpf>
+  </packageSourceCredentials>
+</configuration>

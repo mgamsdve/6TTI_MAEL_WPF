@@ -1,0 +1,7 @@
+<Window x:Class="CreationDynamique.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ACT 4 : Création dynamique d'objets"
+        Width="650" Height="650" MinWidth="520" MinHeight="480"
+        WindowStartupLocation="CenterScreen">
+</Window>

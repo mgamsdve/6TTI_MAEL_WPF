@@ -1,0 +1,41 @@
+<Window x:Class="Calculatrice.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Calculatrice" Height="340" Width="380" MinHeight="320" MinWidth="360"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Nombre A" VerticalAlignment="Center" />
+        <TextBox x:Name="TxtA" Grid.Column="1" Height="32" Padding="6" />
+
+        <TextBlock Grid.Row="1" Text="Nombre B" VerticalAlignment="Center" Margin="0,16,0,0" />
+        <TextBox x:Name="TxtB" Grid.Row="1" Grid.Column="1" Height="32" Padding="6" Margin="0,16,0,0" />
+
+        <TextBlock Grid.Row="2" Text="Opération" VerticalAlignment="Center" Margin="0,16,0,0" />
+        <ComboBox x:Name="CboOperation" Grid.Row="2" Grid.Column="1" Height="32" Margin="0,16,0,0" SelectedIndex="0">
+            <ComboBoxItem Content="Addition (+)" Tag="+" />
+            <ComboBoxItem Content="Soustraction (-)" Tag="-" />
+            <ComboBoxItem Content="Multiplication (×)" Tag="*" />
+            <ComboBoxItem Content="Division (÷)" Tag="/" />
+        </ComboBox>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,24,0,0">
+            <Button x:Name="BtnCalculer" Content="Calculer" Width="120" Height="38" />
+            <Button x:Name="BtnV" Content="V" Width="38" Height="38" Margin="12,0,0,0"
+                    Visibility="Hidden" IsHitTestVisible="False" />
+        </StackPanel>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Margin="0,18,0,0"
+                   Text="Chiffres et virgule uniquement. Exemple : 12,5" TextWrapping="Wrap" />
+    </Grid>
+</Window>
