@@ -1,38 +1,15 @@
-using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 
 namespace CreationDynamique
 {
     public partial class MainWindow : Window
     {
-        private readonly Random nbAlea = new Random();
-
         public MainWindow()
         {
             InitializeComponent();
-
-            // Le XAML ne contient aucun contrôle : tout est créé en C#.
-            TabControl onglets = new TabControl();
-            onglets.Items.Add(new TabItem
-            {
-                Header = "Exercice 1",
-                Content = CreerExercice1()
-            });
-            onglets.Items.Add(new TabItem
-            {
-                Header = "Exercice 2 : ?",
-                Content = CreerExercice2(false)
-            });
-            onglets.Items.Add(new TabItem
-            {
-                Header = "Exercice 2 : animaux",
-                Content = CreerExercice2(true)
-            });
-            this.Content = onglets;
+            Content = CreerExercice1();
         }
 
         private Grid CreerExercice1()
@@ -40,7 +17,6 @@ namespace CreationDynamique
             Grid grdMain = new Grid();
             grdMain.Margin = new Thickness(20);
 
-            // Trois colonnes et trois lignes de même taille.
             for (int i = 0; i < 3; i++)
             {
                 grdMain.ColumnDefinitions.Add(new ColumnDefinition());
@@ -62,7 +38,6 @@ namespace CreationDynamique
             Grid.SetColumnSpan(txtTitre, 3);
             grdMain.Children.Add(txtTitre);
 
-            // Un bouton dans chaque colonne de la deuxième ligne.
             for (int colonne = 0; colonne < 3; colonne++)
             {
                 Button btn = new Button();
@@ -104,81 +79,6 @@ namespace CreationDynamique
             grdMain.Children.Add(cboAnimaux);
 
             return grdMain;
-        }
-
-        private Grid CreerExercice2(bool avecAnimaux)
-        {
-            Grid grdMain = new Grid();
-            grdMain.Background = Brushes.White;
-
-            // Les définitions sont stockées dans deux tableaux.
-            ColumnDefinition[] colDef = new ColumnDefinition[4];
-            RowDefinition[] rowDef = new RowDefinition[4];
-
-            for (int i = 0; i < 4; i++)
-            {
-                colDef[i] = new ColumnDefinition();
-                grdMain.ColumnDefinitions.Add(colDef[i]);
-                rowDef[i] = new RowDefinition();
-                grdMain.RowDefinitions.Add(rowDef[i]);
-            }
-
-            // Une matrice contient les seize TextBlocks.
-            TextBlock[,] textBlocks = new TextBlock[4, 4];
-
-            for (int ligne = 0; ligne < 4; ligne++)
-            {
-                for (int colonne = 0; colonne < 4; colonne++)
-                {
-                    TextBlock txtCase = new TextBlock();
-                    txtCase.Text = "?";
-                    txtCase.FontSize = 36;
-                    txtCase.FontFamily = new FontFamily("Segoe UI Emoji");
-                    txtCase.HorizontalAlignment = HorizontalAlignment.Center;
-                    txtCase.VerticalAlignment = VerticalAlignment.Center;
-                    txtCase.Background = Brushes.Transparent;
-                    txtCase.Padding = new Thickness(12);
-                    txtCase.Cursor = Cursors.Hand;
-                    txtCase.MouseDown += TextBlock_MouseDown;
-
-                    textBlocks[ligne, colonne] = txtCase;
-                    Grid.SetRow(textBlocks[ligne, colonne], ligne);
-                    Grid.SetColumn(textBlocks[ligne, colonne], colonne);
-                    grdMain.Children.Add(textBlocks[ligne, colonne]);
-                }
-            }
-
-            if (avecAnimaux)
-            {
-                AttribuerAnimaux(textBlocks);
-            }
-
-            return grdMain;
-        }
-
-        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            TextBlock txtCase = (TextBlock)sender;
-            txtCase.Text = "X";
-        }
-
-        private void AttribuerAnimaux(TextBlock[,] textBlocks)
-        {
-            List<string> animalEmoji = new List<string>()
-            {
-                "🐈", "🐵", "🐷", "🐱", "🐐", "🐯", "🦊", "🐼",
-                "🐴", "🦝", "🦨", "🐭", "🦉", "🐰", "🐀", "🦔"
-            };
-
-            foreach (TextBlock textBlock in textBlocks)
-            {
-                int index = nbAlea.Next(animalEmoji.Count);
-                string nextEmoji = animalEmoji[index];
-                textBlock.Text = nextEmoji;
-
-                // L'animal tiré est retiré pour éviter de le choisir à nouveau.
-                animalEmoji.RemoveAt(index);
-            }
         }
     }
 }
